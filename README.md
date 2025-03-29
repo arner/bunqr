@@ -4,7 +4,7 @@ This is a go SDK for the Bunq API. The basics are there but is not a finished pr
 
 It contains a package for the OAuth2 authentication flow, based on the go http library, that can also be used independently.
 
-The `Bunqr.Client` struct exposes all API endpoints of the Bunq API. **Some of them will not work out of the box!** See below for how to fix. It's because the code is generated from the API spec. Is this the best approach? In hindsight, probably not. But fixes are usually not difficult to make.
+The `SDK.Client` struct exposes all API endpoints of the Bunq API. **Some of them will not work out of the box!** See below for how to fix. It's because the code is generated from the API spec. Is this the best approach? In hindsight, probably not. But fixes are usually not difficult to make.
 
 ## Try it out
 
@@ -23,7 +23,7 @@ Review the Bunq [API documentation](https://doc.bunq.com/).
 
 ## Using the SDK
 
-Take a look at `example/main.go` for the example code. This code is not suitable for production as it is, but it gives a good idea of what you need to implement. You can use it with an API key or OAuth2 (recommended).
+Take a look at the [example](https://github.com/arner/bunqr/blob/main/example/main.go) for the example code. This code is not suitable for production as it is, but it gives a good idea of what you need to implement. You can use it with an API key or OAuth2 (recommended).
 
 ## Fixing the API
 
