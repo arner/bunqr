@@ -1,0 +1,206 @@
+{{$clientTypeName := opts.OutputOptions.ClientTypeName -}}
+
+// The interface specification for the client above.
+type ClientInterface interface {
+{{range . -}}
+{{$hasParams := .RequiresParamObject -}}
+{{$pathParams := .PathParams -}}
+{{- $responseTypeDefinitions := getResponseTypeDefinitions .}}
+{{- $success := "" }}
+{{- range getResponseTypeDefinitions . }}
+{{- if ne .Schema.TypeDecl "GenericError" }}{{ $success = .Schema.TypeDecl }}{{- end }}
+{{- end }}
+{{- if ne $success "" }}
+{{$opid := .OperationId -}}
+{{- if not .HasBody }}
+    // {{$opid}} request
+    {{$opid}}(ctx context.Context, apiKey string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}, reqEditors... RequestEditorFn) (Result[{{ $success }}], error)
+{{- end }}
+{{range .Bodies}}
+    {{if .IsSupportedByClient -}}
+    // {{$opid}} request
+    {{$opid}}{{.Suffix}}(ctx context.Context, apiKey string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}, body {{$opid}}{{.NameTag}}RequestBody, reqEditors... RequestEditorFn) (Result[{{ $success }}], error)
+    {{end -}}
+{{end}}{{/* range .Bodies */}}
+{{end}}{{/* range . $opid := .OperationId */}}
+{{- end}}
+}
+
+
+{{/* Generate client methods */}}
+{{range . -}}
+{{$hasParams := .RequiresParamObject -}}
+{{$pathParams := .PathParams -}}
+{{$opid := .OperationId -}}
+
+{{- $responseTypeDefinitions := getResponseTypeDefinitions .}}
+{{- $success := "" }}
+{{- range getResponseTypeDefinitions . }}
+{{- if ne .Schema.TypeDecl "GenericError" }}{{ $success = .Schema.TypeDecl }}{{- end }}
+{{- end }}
+{{- if ne $success "" }}
+{{ if not .HasBody }}
+func (c *{{ $clientTypeName }}) {{$opid}}(ctx context.Context, apiKey string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}, reqEditors... RequestEditorFn) (res Result[{{ $success }}], err error) {
+    req, err := New{{$opid}}Request(c.Server{{genParamNames .PathParams}}{{if $hasParams}}, params{{end}})
+    if err != nil {
+        return
+    }
+    req = req.WithContext(ctx)
+    if len(apiKey) > 0 {
+        req.Header.Set("X-Bunq-Client-Authentication", apiKey)
+    }
+    err = c.applyEditors(ctx, req, reqEditors)
+    if err != nil {
+        return
+    }
+    rsp, err := c.Client.Do(req)
+    if err != nil {
+        return
+    }
+    err = c.applyResponseValidators(ctx, rsp)
+    if err != nil {
+        return
+    }
+    return Parse{{ if eq (slice $success 0 2) "[]" }}Slice{{ else }}Single{{ end }}[{{ $success }}](rsp)
+}
+{{- end }}
+
+{{range .Bodies}}
+{{if .IsSupportedByClient -}}
+func (c *{{ $clientTypeName }}) {{$opid}}{{.Suffix}}(ctx context.Context, apiKey string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}, body {{$opid}}{{.NameTag}}RequestBody, reqEditors... RequestEditorFn) (res Result[{{ $success }}], err error) {
+    req, err := New{{$opid}}Request{{.Suffix}}(c.Server{{genParamNames $pathParams}}{{if $hasParams}}, params{{end}}, body)
+    if err != nil {
+        return
+    }
+    req = req.WithContext(ctx)
+    if len(apiKey) > 0 {
+        req.Header.Set("X-Bunq-Client-Authentication", apiKey)
+    }
+    err = c.applyEditors(ctx, req, reqEditors)
+    if err != nil {
+        return
+    }
+    rsp, err := c.Client.Do(req)
+    if err != nil {
+        return
+    }
+    err = c.applyResponseValidators(ctx, rsp)
+    if err != nil {
+        return
+    }
+    return Parse{{ if eq (slice $success 0 2) "[]" }}Slice{{ else }}Single{{ end }}[{{ $success }}](rsp)
+}
+{{end -}}{{/* if .IsSupported */}}
+{{end}}{{/* range .Bodies */}}
+{{end}}
+{{- end}}
+
+{{/* Generate request builders */}}
+{{range .}}
+{{$hasParams := .RequiresParamObject -}}
+{{$pathParams := .PathParams -}}
+{{$bodyRequired := .BodyRequired -}}
+{{$opid := .OperationId -}}
+
+{{range .Bodies}}
+{{if .IsSupportedByClient -}}
+// New{{$opid}}Request{{.Suffix}} calls the generic {{$opid}} builder with {{.ContentType}} body
+func New{{$opid}}Request{{.Suffix}}(server string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}, body {{$opid}}{{.NameTag}}RequestBody) (*http.Request, error) {
+    var bodyReader io.Reader
+    {{if .IsJSON -}}
+        buf, err := json.Marshal(body)
+        if err != nil {
+            return nil, err
+        }
+        bodyReader = bytes.NewReader(buf)
+    {{else if eq .NameTag "Formdata" -}}
+        bodyStr, err := runtime.MarshalForm(body, nil)
+        if err != nil {
+            return nil, err
+        }
+        bodyReader = strings.NewReader(bodyStr.Encode())
+    {{else if eq .NameTag "Text" -}}
+        bodyReader = strings.NewReader(string(body))
+    {{end -}}
+    return New{{$opid}}RequestWithBody(server{{genParamNames $pathParams}}{{if $hasParams}}, params{{end}}, "{{.ContentType}}", bodyReader)
+}
+{{end -}}
+{{end}}
+
+// New{{$opid}}Request{{if .HasBody}}WithBody{{end}} generates requests for {{$opid}}{{if .HasBody}} with any type of body{{end}}
+func New{{$opid}}Request{{if .HasBody}}WithBody{{end}}(server string{{genParamArgs $pathParams}}{{if $hasParams}}, params *{{$opid}}Params{{end}}{{if .HasBody}}, contentType string, body io.Reader{{end}}) (*http.Request, error) {
+    var err error
+{{range $paramIdx, $param := .PathParams}}
+    var pathParam{{$paramIdx}} string
+    {{if .IsPassThrough}}
+    pathParam{{$paramIdx}} = {{.GoVariableName}}
+    {{end}}
+    {{if .IsJson}}
+    var pathParamBuf{{$paramIdx}} []byte
+    pathParamBuf{{$paramIdx}}, err = json.Marshal({{.GoVariableName}})
+    if err != nil {
+        return nil, err
+    }
+    pathParam{{$paramIdx}} = string(pathParamBuf{{$paramIdx}})
+    {{end}}
+    {{- if .IsStyled}}
+        {{- if and (not .Explode) (eq .Style "simple") (or (eq $param.TypeDef "string") (eq $param.TypeDef "int" )) }}
+    pathParam{{$paramIdx}} = {{ if eq $param.TypeDef "string" }}url.PathEscape({{ else }}strconv.Itoa({{ end }}{{.GoVariableName}})
+        {{- else }}
+    pathParam{{$paramIdx}}, err = runtime.StyleParamWithLocation("{{.Style}}", {{.Explode}}, "{{.ParamName}}", runtime.ParamLocationPath, {{.GoVariableName}})
+    if err != nil {
+        return nil, err
+    }
+    {{- end }}
+    {{- end }}
+{{end}}
+    serverURL, err := url.Parse(server)
+    if err != nil {
+        return nil, err
+    }
+
+    operationPath := fmt.Sprintf("{{genParamFmtString .Path}}"{{range $paramIdx, $param := .PathParams}}, pathParam{{$paramIdx}}{{end}})
+    if operationPath[0] == '/' {
+        operationPath = "." + operationPath
+    }
+
+    queryURL, err := serverURL.Parse(operationPath)
+    if err != nil {
+        return nil, err
+    }
+
+{{if .QueryParams}}
+    if params != nil {
+        queryValues := queryURL.Query()
+            {{range $paramIdx, $param := .QueryParams}}
+            {{if not .Required}} if params.{{.GoName}} != 0 { {{end}}
+            {{- if .IsPassThrough}}
+            queryValues.Add("{{.ParamName}}", {{if not .Required}}*{{end}}params.{{.GoName}})
+            {{- end}}
+            {{- if .IsJson}}
+            if queryParamBuf, err := json.Marshal({{if not .Required}}*{{end}}params.{{.GoName}}); err != nil {
+                return nil, err
+            } else {
+                queryValues.Add("{{.ParamName}}", string(queryParamBuf))
+            }
+            {{- end}}
+            {{- if .IsStyled}}
+            queryFrag := strconv.Itoa({{if not .Required}}{{end}}params.{{.GoName}})
+            queryValues.Add("{{.ParamName}}", queryFrag)
+            {{- end}}
+            {{if not .Required}}}{{end}}
+        {{- end}}
+        queryURL.RawQuery = queryValues.Encode()
+    }
+{{end}}{{/* if .QueryParams */}}
+    req, err := http.NewRequest("{{.Method}}", queryURL.String(), {{if .HasBody}}body{{else}}nil{{end}})
+    if err != nil {
+        return nil, err
+    }
+
+    {{if .HasBody}}req.Header.Add("Content-Type", contentType){{end}}
+
+    return req, nil
+}
+
+{{end}}{{/* Range */}}

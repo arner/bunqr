@@ -23,3 +23,7 @@ go.work.sum
 
 # env file
 .env
+
+# configuration and key
+example/installation-*.json
+example/private_key.pem

@@ -1,0 +1,78 @@
+{
+    "Response": [
+        {
+            "Id": {
+                "id": 700000001
+            }
+        },
+        {
+            "Token": {
+                "id": 700000001,
+                "created": "2024-12-24 23:19:17.940551",
+                "updated": "2024-12-24 23:19:17.940551",
+                "token": "thetoken"
+            }
+        },
+        {
+            "UserApiKey": {
+                "id": 654321,
+                "created": "2024-12-24 23:19:14.440453",
+                "updated": "2024-12-24 23:19:14.440453",
+                "requested_by_user": {
+                    "UserPerson": {
+                        "id": 223456,
+                        "display_name": "Bob",
+                        "public_nick_name": "BobN",
+                        "avatar": {
+                            "uuid": "2b4183e1-cb8e-496f-aa82-b7fac885543d",
+                            "image": [
+                                {
+                                    "attachment_public_uuid": "25dcbc59-9bd7-4db3-be4c-ae776bed37f1",
+                                    "height": 640,
+                                    "width": 640,
+                                    "content_type": "image\/png",
+                                    "urls": [
+                                        {
+                                            "type": "ORIGINAL",
+                                            "url": "https:\/\/bunq-prod-model-storage-public.s3.eu-central-1.amazonaws.com\/bunq_file\/File\/content\/aabbccddeeff12345678.png"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "anchor_uuid": "85ad343b-492c-48a9-b935-3c3bd25b09f1",
+                            "style": "NONE"
+                        },
+                        "session_timeout": 604800
+                    }
+                },
+                "granted_by_user": {
+                    "UserPerson": {
+                        "id": 123456,
+                        "display_name": "Alice",
+                        "public_nick_name": "AliceN",
+                        "avatar": {
+                            "uuid": "2b4183e1-cb8e-496f-aa82-b7fac885543d",
+                            "image": [
+                                {
+                                    "attachment_public_uuid": "25dcbc59-9bd7-4db3-be4c-ae776bed37f1",
+                                    "height": 640,
+                                    "width": 640,
+                                    "content_type": "image\/png",
+                                    "urls": [
+                                        {
+                                            "type": "ORIGINAL",
+                                            "url": "https:\/\/bunq-prod-model-storage-public.s3.eu-central-1.amazonaws.com\/bunq_file\/File\/content\/aabbccddeeff12345678.png"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "anchor_uuid": "85ad343b-492c-48a9-b935-3c3bd25b09f1",
+                            "style": "NONE"
+                        },
+                        "session_timeout": 604800
+                    }
+                }
+            }
+        }
+    ]
+}

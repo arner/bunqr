@@ -1,0 +1,22 @@
+{
+    "Response": [
+        {
+            "Id": {
+                "id": 10000000
+            }
+        },
+        {
+            "Token": {
+                "id": 20000000,
+                "created": "2024-12-23 18:22:57.283406",
+                "updated": "2024-12-23 18:22:57.283406",
+                "token": "mytoken"
+            }
+        },
+        {
+            "ServerPublicKey": {
+                "server_public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwBiy0NPYZzLVxiTvhXkt\ntTevJGlYEnm6TKcvkwvTWcNrdUIMKjcFncr9eR0kuS+Or4pGFf40iJIpQ1tSGJOg\natFq9lOkH3KPA0\/HIuERXsaIrjPKdLg6uksXFvmrJaiknQpkA1sDrvZJrhuiz4gq\n7few3LwH2m331CXS0EGQA931PMyXOS1utCxc+Bdioh6tJF974+gNrs2aWlFbIwX8\nnegKaU1kE08bzYGxuBWbv8LW9yyn0ITEN111Bg4GLfDNTYyorVO2AGjhczCVVvvh\n99u92Alql0z0JEyVxeioyF9vZVwwdCJXrmNvCpWoR56gW316UAoAHE9LDBN1JgtD\nfwIDAQAB\n-----END PUBLIC KEY-----\n"
+            }
+        }
+    ]
+}

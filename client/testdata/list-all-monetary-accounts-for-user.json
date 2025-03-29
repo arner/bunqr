@@ -1,0 +1,105 @@
+{
+    "Response": [
+        {
+            "MonetaryAccountBank": {
+                "id": 1895767,
+                "created": "2024-12-23 13:58:49.863215",
+                "updated": "2024-12-23 13:58:49.863215",
+                "alias": [
+                    {
+                        "type": "PHONE_NUMBER",
+                        "value": "+31612328390",
+                        "name": "+31612328390"
+                    },
+                    {
+                        "type": "EMAIL",
+                        "value": "test+4cc6c66c-7365-41b5-b0af-d8b7d09300be@bunq.com",
+                        "name": "test+4cc6c66c-7365-41b5-b0af-d8b7d09300be@bunq.com"
+                    },
+                    {
+                        "type": "IBAN",
+                        "value": "NL52BUNQ2117660061",
+                        "name": "Elliot Levy"
+                    }
+                ],
+                "avatar": {
+                    "uuid": "106c5c39-9244-44f9-92ea-6b3a08544f61",
+                    "image": [
+                        {
+                            "attachment_public_uuid": "8e18f165-f7a7-40e7-b809-74149cdb27fe",
+                            "height": 1023,
+                            "width": 1024,
+                            "content_type": "image\/png",
+                            "urls": [
+                                {
+                                    "type": "ORIGINAL",
+                                    "url": "https:\/\/bunq-triage-model-storage-public.s3.eu-central-1.amazonaws.com\/bunq_file\/File\/content\/921ece497cd00f4e0cef3f0f63a962c31cf3f8e35311d127d5a7b23be3d074d5.png"
+                                }
+                            ]
+                        }
+                    ],
+                    "anchor_uuid": "b1b6c8f8-21b7-46d4-809f-d854f3e732d5",
+                    "style": "NONE"
+                },
+                "balance": {
+                    "currency": "EUR",
+                    "value": "-9.99"
+                },
+                "country": "NL",
+                "currency": "EUR",
+                "display_name": "E. Levy",
+                "daily_limit": {
+                    "currency": "EUR",
+                    "value": "5000.00"
+                },
+                "description": "Main",
+                "public_uuid": "b1b6c8f8-21b7-46d4-809f-d854f3e732d5",
+                "status": "ACTIVE",
+                "sub_status": "NONE",
+                "timezone": "europe\/amsterdam",
+                "user_id": 1725995,
+                "monetary_account_profile": {
+                    "profile_fill": {
+                        "status": "ACTIVE",
+                        "balance_preferred": {
+                            "currency": "EUR",
+                            "value": "100.00"
+                        },
+                        "balance_threshold_low": {
+                            "currency": "EUR",
+                            "value": "50.00"
+                        }
+                    },
+                    "profile_drain": null,
+                    "profile_action_required": "FILL_ACCOUNT_NEEDED",
+                    "profile_amount_required": {
+                        "currency": "EUR",
+                        "value": "109.99"
+                    }
+                },
+                "setting": {
+                    "color": "#FF7819",
+                    "icon": null,
+                    "default_avatar_status": "AVATAR_DEFAULT",
+                    "restriction_chat": "ALLOW_INCOMING",
+                    "sdd_expiration_action": "AUTO_ACCEPT"
+                },
+                "connected_cards": [],
+                "budget": [],
+                "credit_line": null,
+                "overdraft_limit": {
+                    "currency": "EUR",
+                    "value": "0.00"
+                },
+                "share": null,
+                "all_auto_save_id": [],
+                "relation_user": null
+            }
+        }
+    ],
+    "Pagination": {
+        "future_url": "\/v1\/user\/1725995\/monetary-account?newer_id=1895767",
+        "newer_url": null,
+        "older_url": null
+    }
+}

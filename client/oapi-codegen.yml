@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/HEAD/configuration-schema.json
+package: client
+output: api.gen.go
+generate:
+  models: true
+  client: true
+
+output-options:
+  user-templates:
+    client.tmpl: ./oapi-client.go.tmpl
+    client-with-responses.tmpl: |
+      // not generating client-with-responses
