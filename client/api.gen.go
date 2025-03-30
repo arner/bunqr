@@ -3820,57 +3820,6 @@ type MonetaryAccountBankCreate struct {
 	Id *BunqId `json:"Id,omitempty"`
 }
 
-// MonetaryAccountBankListing defines model for MonetaryAccountBankListing.
-type MonetaryAccountBankListing struct {
-	// Alias The Aliases for the MonetaryAccountBank.
-	Alias []Pointer `json:"alias,omitempty"`
-
-	// AllAutoSaveId The ids of the AutoSave.
-	AllAutoSaveId []BunqId `json:"all_auto_save_id,omitempty"`
-	Avatar        *Avatar   `json:"avatar,omitempty"`
-	Balance       Amount   `json:"balance,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountBank's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountBank as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountBank. Defaults to 'bunq account'.
-	Description string `json:"description,omitempty"`
-
-	// DisplayName The legal name of the user / company using this monetary account.
-	DisplayName string `json:"display_name,omitempty"`
-
-	// Id The id of the MonetaryAccountBank.
-	Id                     int                    `json:"id,omitempty"`
-	MonetaryAccountProfile *MonetaryAccountProfile `json:"monetary_account_profile,omitempty"`
-	OverdraftLimit         Amount                 `json:"overdraft_limit,omitempty"`
-
-	// PublicUuid The MonetaryAccountBank's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Reason The reason for voluntarily cancelling (closing) the MonetaryAccountBank, can only be OTHER.
-	Reason string `json:"reason,omitempty"`
-
-	// ReasonDescription The optional free-form reason for voluntarily cancelling (closing) the MonetaryAccountBank. Can be any user provided message.
-	ReasonDescription string                 `json:"reason_description,omitempty"`
-	Setting           *MonetaryAccountSetting `json:"setting,omitempty"`
-
-	// Status The status of the MonetaryAccountBank. Can be: ACTIVE, BLOCKED, CANCELLED or PENDING_REOPEN
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountBank providing extra information regarding the status. Will be NONE for ACTIVE or PENDING_REOPEN, COMPLETELY or ONLY_ACCEPTING_INCOMING for BLOCKED and REDEMPTION_INVOLUNTARY, REDEMPTION_VOLUNTARY or PERMANENT for CANCELLED.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountBank's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountBank.
-	UserId int `json:"user_id,omitempty"`
-}
-
 // MonetaryAccountBankRead defines model for MonetaryAccountBankRead.
 type MonetaryAccountBankRead struct {
 	// Alias The Aliases for the MonetaryAccountBank.
@@ -3945,43 +3894,6 @@ type MonetaryAccountBudget struct {
 
 // MonetaryAccountCard defines model for MonetaryAccountCard.
 type MonetaryAccountCard struct {
-	// Alias The Aliases for the MonetaryAccountCard.
-	Alias       []Pointer `json:"alias,omitempty"`
-	Balance     Amount    `json:"balance,omitempty"`
-	BalanceReal Amount    `json:"balance_real,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountCard's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountCard as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountCard. Defaults to 'prepaid credit card'.
-	Description string `json:"description,omitempty"`
-
-	// Id The id of the MonetaryAccountCard.
-	Id             int    `json:"id,omitempty"`
-	OverdraftLimit Amount `json:"overdraft_limit,omitempty"`
-
-	// PublicUuid The MonetaryAccountCard's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Status The status of the MonetaryAccountCard.
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountCard providing extra information regarding the status.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountCard's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountCard.
-	UserId int `json:"user_id,omitempty"`
-}
-
-// MonetaryAccountCardListing defines model for MonetaryAccountCardListing.
-type MonetaryAccountCardListing struct {
 	// Alias The Aliases for the MonetaryAccountCard.
 	Alias       []Pointer `json:"alias,omitempty"`
 	Balance     Amount    `json:"balance,omitempty"`
@@ -4122,61 +4034,6 @@ type MonetaryAccountExternalCreate struct {
 	Id *BunqId `json:"Id,omitempty"`
 }
 
-// MonetaryAccountExternalListing defines model for MonetaryAccountExternalListing.
-type MonetaryAccountExternalListing struct {
-	// Alias The Aliases for the MonetaryAccountExternal.
-	Alias []Pointer `json:"alias,omitempty"`
-
-	// AllAutoSaveId The ids of the AutoSave.
-	AllAutoSaveId []BunqId `json:"all_auto_save_id,omitempty"`
-	Avatar        *Avatar   `json:"avatar,omitempty"`
-	Balance       Amount   `json:"balance,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountExternal's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountExternal as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountExternal. Defaults to 'bunq account'.
-	Description string `json:"description,omitempty"`
-
-	// DisplayName The legal name of the user / company using this monetary account.
-	DisplayName string `json:"display_name,omitempty"`
-
-	// Id The id of the MonetaryAccountExternal.
-	Id                     int                    `json:"id,omitempty"`
-	MonetaryAccountProfile *MonetaryAccountProfile `json:"monetary_account_profile,omitempty"`
-	OpenBankingAccount     *OpenBankingAccount     `json:"open_banking_account,omitempty"`
-	OverdraftLimit         Amount                 `json:"overdraft_limit,omitempty"`
-
-	// PublicUuid The MonetaryAccountExternal's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Reason The reason for voluntarily cancelling (closing) the MonetaryAccountExternal, can only be OTHER.
-	Reason string `json:"reason,omitempty"`
-
-	// ReasonDescription The optional free-form reason for voluntarily cancelling (closing) the MonetaryAccountExternal. Can be any user provided message.
-	ReasonDescription string `json:"reason_description,omitempty"`
-
-	// Service The external service the Monetary Account is connected with.
-	Service string                 `json:"service,omitempty"`
-	Setting *MonetaryAccountSetting `json:"setting,omitempty"`
-
-	// Status The status of the MonetaryAccountExternal. Can be: ACTIVE, BLOCKED, CANCELLED or PENDING_REOPEN
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountExternal providing extra information regarding the status. Will be NONE for ACTIVE or PENDING_REOPEN, COMPLETELY or ONLY_ACCEPTING_INCOMING for BLOCKED and REDEMPTION_INVOLUNTARY, REDEMPTION_VOLUNTARY or PERMANENT for CANCELLED.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountExternal's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountExternal.
-	UserId int `json:"user_id,omitempty"`
-}
-
 // MonetaryAccountExternalRead defines model for MonetaryAccountExternalRead.
 type MonetaryAccountExternalRead struct {
 	// Alias The Aliases for the MonetaryAccountExternal.
@@ -4298,63 +4155,6 @@ type MonetaryAccountExternalSavings struct {
 // MonetaryAccountExternalSavingsCreate defines model for MonetaryAccountExternalSavingsCreate.
 type MonetaryAccountExternalSavingsCreate struct {
 	Id *BunqId `json:"Id,omitempty"`
-}
-
-// MonetaryAccountExternalSavingsListing defines model for MonetaryAccountExternalSavingsListing.
-type MonetaryAccountExternalSavingsListing struct {
-	// Alias The Aliases for the MonetaryAccountExternalSavings.
-	Alias []Pointer `json:"alias,omitempty"`
-
-	// AllAutoSaveId The ids of the AutoSave.
-	AllAutoSaveId []BunqId `json:"all_auto_save_id,omitempty"`
-	Avatar        *Avatar   `json:"avatar,omitempty"`
-	Balance       Amount   `json:"balance,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountExternalSavings's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountExternalSavings as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountExternalSavings. Defaults to 'bunq account'.
-	Description string `json:"description,omitempty"`
-
-	// DisplayName The legal name of the user / company using this monetary account.
-	DisplayName string `json:"display_name,omitempty"`
-
-	// Id The id of the MonetaryAccountExternalSavings.
-	Id                     int                    `json:"id,omitempty"`
-	MonetaryAccountProfile *MonetaryAccountProfile `json:"monetary_account_profile,omitempty"`
-
-	// NumberOfPaymentRemaining The number of payments that can be made from this savings account
-	NumberOfPaymentRemaining *float32 `json:"number_of_payment_remaining,omitempty"`
-
-	// PublicUuid The MonetaryAccountExternalSavings's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Reason The reason for voluntarily cancelling (closing) the MonetaryAccountExternalSavings, can only be OTHER.
-	Reason string `json:"reason,omitempty"`
-
-	// ReasonDescription The optional free-form reason for voluntarily cancelling (closing) the MonetaryAccountExternalSavings. Can be any user provided message.
-	ReasonDescription string `json:"reason_description,omitempty"`
-	SavingsGoal       Amount `json:"savings_goal,omitempty"`
-
-	// SavingsGoalProgress The progress in percentages for the Savings Goal set for this MonetaryAccountExternalSavings.
-	SavingsGoalProgress int                    `json:"savings_goal_progress,omitempty"`
-	Setting             *MonetaryAccountSetting `json:"setting,omitempty"`
-
-	// Status The status of the MonetaryAccountExternalSavings. Can be: ACTIVE, BLOCKED, CANCELLED or PENDING_REOPEN
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountExternalSavings providing extra information regarding the status. Will be NONE for ACTIVE or PENDING_REOPEN, COMPLETELY or ONLY_ACCEPTING_INCOMING for BLOCKED and REDEMPTION_INVOLUNTARY, REDEMPTION_VOLUNTARY or PERMANENT for CANCELLED.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountExternalSavings's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountExternalSavings.
-	UserId int `json:"user_id,omitempty"`
 }
 
 // MonetaryAccountExternalSavingsRead defines model for MonetaryAccountExternalSavingsRead.
@@ -4542,57 +4342,6 @@ type MonetaryAccountJoint struct {
 // MonetaryAccountJointCreate defines model for MonetaryAccountJointCreate.
 type MonetaryAccountJointCreate struct {
 	Id *BunqId `json:"Id,omitempty"`
-}
-
-// MonetaryAccountJointListing defines model for MonetaryAccountJointListing.
-type MonetaryAccountJointListing struct {
-	// Alias The Aliases for the MonetaryAccountJoint.
-	Alias []Pointer `json:"alias,omitempty"`
-
-	// AllAutoSaveId The ids of the AutoSave.
-	AllAutoSaveId []BunqId `json:"all_auto_save_id,omitempty"`
-
-	// AllCoOwner The users the account will be joint with.
-	AllCoOwner []CoOwner `json:"all_co_owner,omitempty"`
-	Avatar     *Avatar    `json:"avatar,omitempty"`
-	Balance    Amount    `json:"balance,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountJoint's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountJoint as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountJoint. Defaults to 'bunq account'.
-	Description string `json:"description,omitempty"`
-
-	// Id The id of the MonetaryAccountJoint.
-	Id                     int                    `json:"id,omitempty"`
-	MonetaryAccountProfile *MonetaryAccountProfile `json:"monetary_account_profile,omitempty"`
-	OverdraftLimit         Amount                 `json:"overdraft_limit,omitempty"`
-
-	// PublicUuid The MonetaryAccountJoint's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Reason The reason for voluntarily cancelling (closing) the MonetaryAccountJoint, can only be OTHER.
-	Reason string `json:"reason,omitempty"`
-
-	// ReasonDescription The optional free-form reason for voluntarily cancelling (closing) the MonetaryAccountJoint. Can be any user provided message.
-	ReasonDescription string                 `json:"reason_description,omitempty"`
-	Setting           *MonetaryAccountSetting `json:"setting,omitempty"`
-
-	// Status The status of the MonetaryAccountJoint. Can be: ACTIVE, BLOCKED, CANCELLED or PENDING_REOPEN
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountJoint providing extra information regarding the status. Will be NONE for ACTIVE or PENDING_REOPEN, COMPLETELY or ONLY_ACCEPTING_INCOMING for BLOCKED and REDEMPTION_INVOLUNTARY, REDEMPTION_VOLUNTARY or PERMANENT for CANCELLED.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountJoint's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountJoint.
-	UserId int `json:"user_id,omitempty"`
 }
 
 // MonetaryAccountJointRead defines model for MonetaryAccountJointRead.
@@ -4819,63 +4568,6 @@ type MonetaryAccountSavings struct {
 // MonetaryAccountSavingsCreate defines model for MonetaryAccountSavingsCreate.
 type MonetaryAccountSavingsCreate struct {
 	Id *BunqId `json:"Id,omitempty"`
-}
-
-// MonetaryAccountSavingsListing defines model for MonetaryAccountSavingsListing.
-type MonetaryAccountSavingsListing struct {
-	// Alias The Aliases for the MonetaryAccountSavings.
-	Alias []Pointer `json:"alias,omitempty"`
-
-	// AllAutoSaveId The ids of the AutoSave.
-	AllAutoSaveId []BunqId `json:"all_auto_save_id,omitempty"`
-
-	// AllCoOwner The users the account will be joint with.
-	AllCoOwner []CoOwner `json:"all_co_owner,omitempty"`
-	Avatar     *Avatar    `json:"avatar,omitempty"`
-	Balance    Amount    `json:"balance,omitempty"`
-
-	// Created The timestamp of the MonetaryAccountSavings's creation.
-	Created string `json:"created,omitempty"`
-
-	// Currency The currency of the MonetaryAccountSavings as an ISO 4217 formatted currency code.
-	Currency   string `json:"currency,omitempty"`
-	DailyLimit Amount `json:"daily_limit,omitempty"`
-
-	// Description The description of the MonetaryAccountSavings. Defaults to 'bunq account'.
-	Description string `json:"description,omitempty"`
-
-	// Id The id of the MonetaryAccountSavings.
-	Id                     int                    `json:"id,omitempty"`
-	MonetaryAccountProfile *MonetaryAccountProfile `json:"monetary_account_profile,omitempty"`
-
-	// NumberOfPaymentRemaining The number of payments that can be made from this savings account
-	NumberOfPaymentRemaining *float32 `json:"number_of_payment_remaining,omitempty"`
-
-	// PublicUuid The MonetaryAccountSavings's public UUID.
-	PublicUuid string `json:"public_uuid,omitempty"`
-
-	// Reason The reason for voluntarily cancelling (closing) the MonetaryAccountSavings, can only be OTHER.
-	Reason string `json:"reason,omitempty"`
-
-	// ReasonDescription The optional free-form reason for voluntarily cancelling (closing) the MonetaryAccountSavings. Can be any user provided message.
-	ReasonDescription string `json:"reason_description,omitempty"`
-	SavingsGoal       Amount `json:"savings_goal,omitempty"`
-
-	// SavingsGoalProgress The progress in percentages for the Savings Goal set for this MonetaryAccountSavings.
-	SavingsGoalProgress int                    `json:"savings_goal_progress,omitempty"`
-	Setting             *MonetaryAccountSetting `json:"setting,omitempty"`
-
-	// Status The status of the MonetaryAccountSavings. Can be: ACTIVE, BLOCKED, CANCELLED or PENDING_REOPEN
-	Status string `json:"status,omitempty"`
-
-	// SubStatus The sub-status of the MonetaryAccountSavings providing extra information regarding the status. Will be NONE for ACTIVE or PENDING_REOPEN, COMPLETELY or ONLY_ACCEPTING_INCOMING for BLOCKED and REDEMPTION_INVOLUNTARY, REDEMPTION_VOLUNTARY or PERMANENT for CANCELLED.
-	SubStatus string `json:"sub_status,omitempty"`
-
-	// Updated The timestamp of the MonetaryAccountSavings's last update.
-	Updated string `json:"updated,omitempty"`
-
-	// UserId The id of the User who owns the MonetaryAccountSavings.
-	UserId int `json:"user_id,omitempty"`
 }
 
 // MonetaryAccountSavingsRead defines model for MonetaryAccountSavingsRead.
@@ -23272,7 +22964,7 @@ type ClientInterface interface {
 	ListAllMonetaryAccountForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// ListAllMonetaryAccountBankForUser request
-	ListAllMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountBankForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountBankListing], error)
+	ListAllMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountBankForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// CREATEMonetaryAccountBankForUser request
 	CREATEMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountBankForUserParams, body CREATEMonetaryAccountBankForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountBankCreate], error)
@@ -23284,7 +22976,7 @@ type ClientInterface interface {
 	UPDATEMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, itemId int, params *UPDATEMonetaryAccountBankForUserParams, body UPDATEMonetaryAccountBankForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountBankUpdate], error)
 
 	// ListAllMonetaryAccountCardForUser request
-	ListAllMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountCardListing], error)
+	ListAllMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// READMonetaryAccountCardForUser request
 	READMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, itemId int, params *READMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (Result[MonetaryAccountCardRead], error)
@@ -23293,13 +22985,13 @@ type ClientInterface interface {
 	UPDATEMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, itemId int, params *UPDATEMonetaryAccountCardForUserParams, body UPDATEMonetaryAccountCardForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountCardUpdate], error)
 
 	// ListAllMonetaryAccountExternalForUser request
-	ListAllMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountExternalListing], error)
+	ListAllMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// CREATEMonetaryAccountExternalForUser request
 	CREATEMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountExternalForUserParams, body CREATEMonetaryAccountExternalForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountExternalCreate], error)
 
 	// ListAllMonetaryAccountExternalSavingsForUser request
-	ListAllMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalSavingsForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountExternalSavingsListing], error)
+	ListAllMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalSavingsForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// CREATEMonetaryAccountExternalSavingsForUser request
 	CREATEMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountExternalSavingsForUserParams, body CREATEMonetaryAccountExternalSavingsForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountExternalSavingsCreate], error)
@@ -23317,7 +23009,7 @@ type ClientInterface interface {
 	UPDATEMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, itemId int, params *UPDATEMonetaryAccountExternalForUserParams, body UPDATEMonetaryAccountExternalForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountExternalUpdate], error)
 
 	// ListAllMonetaryAccountJointForUser request
-	ListAllMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountJointForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountJointListing], error)
+	ListAllMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountJointForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// CREATEMonetaryAccountJointForUser request
 	CREATEMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountJointForUserParams, body CREATEMonetaryAccountJointForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountJointCreate], error)
@@ -23329,7 +23021,7 @@ type ClientInterface interface {
 	UPDATEMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, itemId int, params *UPDATEMonetaryAccountJointForUserParams, body UPDATEMonetaryAccountJointForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountJointUpdate], error)
 
 	// ListAllMonetaryAccountSavingsForUser request
-	ListAllMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountSavingsForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountSavingsListing], error)
+	ListAllMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountSavingsForUserParams, reqEditors ...RequestEditorFn) (Result[[]MonetaryAccountListing], error)
 
 	// CREATEMonetaryAccountSavingsForUser request
 	CREATEMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountSavingsForUserParams, body CREATEMonetaryAccountSavingsForUserJSONRequestBody, reqEditors ...RequestEditorFn) (Result[MonetaryAccountSavingsCreate], error)
@@ -26872,7 +26564,7 @@ func (c *Client) ListAllMonetaryAccountForUser(ctx context.Context, apiKey strin
 	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountBankForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountBankListing], err error) {
+func (c *Client) ListAllMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountBankForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountBankForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -26893,7 +26585,7 @@ func (c *Client) ListAllMonetaryAccountBankForUser(ctx context.Context, apiKey s
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountBankListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) CREATEMonetaryAccountBankForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountBankForUserParams, body CREATEMonetaryAccountBankForUserJSONRequestBody, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountBankCreate], err error) {
@@ -26968,7 +26660,7 @@ func (c *Client) UPDATEMonetaryAccountBankForUser(ctx context.Context, apiKey st
 	return ParseSingle[MonetaryAccountBankUpdate](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountCardListing], err error) {
+func (c *Client) ListAllMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountCardForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -26989,7 +26681,7 @@ func (c *Client) ListAllMonetaryAccountCardForUser(ctx context.Context, apiKey s
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountCardListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) READMonetaryAccountCardForUser(ctx context.Context, apiKey string, userID int, itemId int, params *READMonetaryAccountCardForUserParams, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountCardRead], err error) {
@@ -27040,7 +26732,7 @@ func (c *Client) UPDATEMonetaryAccountCardForUser(ctx context.Context, apiKey st
 	return ParseSingle[MonetaryAccountCardUpdate](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountExternalListing], err error) {
+func (c *Client) ListAllMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountExternalForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -27061,7 +26753,7 @@ func (c *Client) ListAllMonetaryAccountExternalForUser(ctx context.Context, apiK
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountExternalListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) CREATEMonetaryAccountExternalForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountExternalForUserParams, body CREATEMonetaryAccountExternalForUserJSONRequestBody, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountExternalCreate], err error) {
@@ -27088,7 +26780,7 @@ func (c *Client) CREATEMonetaryAccountExternalForUser(ctx context.Context, apiKe
 	return ParseSingle[MonetaryAccountExternalCreate](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalSavingsForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountExternalSavingsListing], err error) {
+func (c *Client) ListAllMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountExternalSavingsForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountExternalSavingsForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -27109,7 +26801,7 @@ func (c *Client) ListAllMonetaryAccountExternalSavingsForUser(ctx context.Contex
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountExternalSavingsListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) CREATEMonetaryAccountExternalSavingsForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountExternalSavingsForUserParams, body CREATEMonetaryAccountExternalSavingsForUserJSONRequestBody, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountExternalSavingsCreate], err error) {
@@ -27232,7 +26924,7 @@ func (c *Client) UPDATEMonetaryAccountExternalForUser(ctx context.Context, apiKe
 	return ParseSingle[MonetaryAccountExternalUpdate](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountJointForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountJointListing], err error) {
+func (c *Client) ListAllMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountJointForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountJointForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -27253,7 +26945,7 @@ func (c *Client) ListAllMonetaryAccountJointForUser(ctx context.Context, apiKey 
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountJointListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) CREATEMonetaryAccountJointForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountJointForUserParams, body CREATEMonetaryAccountJointForUserJSONRequestBody, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountJointCreate], err error) {
@@ -27328,7 +27020,7 @@ func (c *Client) UPDATEMonetaryAccountJointForUser(ctx context.Context, apiKey s
 	return ParseSingle[MonetaryAccountJointUpdate](rsp)
 }
 
-func (c *Client) ListAllMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountSavingsForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountSavingsListing], err error) {
+func (c *Client) ListAllMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *ListAllMonetaryAccountSavingsForUserParams, reqEditors ...RequestEditorFn) (res Result[[]MonetaryAccountListing], err error) {
 	req, err := NewListAllMonetaryAccountSavingsForUserRequest(c.Server, userID, params)
 	if err != nil {
 		return
@@ -27349,7 +27041,7 @@ func (c *Client) ListAllMonetaryAccountSavingsForUser(ctx context.Context, apiKe
 	if err != nil {
 		return
 	}
-	return ParseSlice[[]MonetaryAccountSavingsListing](rsp)
+	return ParseSlice[[]MonetaryAccountListing](rsp)
 }
 
 func (c *Client) CREATEMonetaryAccountSavingsForUser(ctx context.Context, apiKey string, userID int, params *CREATEMonetaryAccountSavingsForUserParams, body CREATEMonetaryAccountSavingsForUserJSONRequestBody, reqEditors ...RequestEditorFn) (res Result[MonetaryAccountSavingsCreate], err error) {

@@ -1,0 +1,74 @@
+{
+    "Response": [
+        {
+            "MonetaryAccountBank": {
+                "id": 1234567,
+                "created": "2023-04-09 12:00:00.876543",
+                "updated": "2025-01-01 22:11:00.123456",
+                "alias": [
+                    {
+                        "type": "IBAN",
+                        "value": "NLxxBUNQxxxxxx",
+                        "name": "Firstname Surname"
+                    },
+                    {
+                        "type": "URL",
+                        "value": "https:\/\/bunq.me\/fake",
+                        "name": "https:\/\/bunq.me\/fake"
+                    }
+                ],
+                "avatar": {
+                    "uuid": "b05b67fd-f455-4bf7-9863-d51170020770",
+                    "image": [
+                        {
+                            "attachment_public_uuid": "746490e8-5247-4fb5-b126-0a84a19bc392",
+                            "height": 1024,
+                            "width": 1024,
+                            "content_type": "image\/jpeg",
+                            "urls": [
+                                {
+                                    "type": "ORIGINAL",
+                                    "url": "https:\/\/bunq-prod-model-storage-public.s3.eu-central-1.amazonaws.com\/bunq_file\/File\/content\/mock.jpg"
+                                }
+                            ]
+                        }
+                    ],
+                    "anchor_uuid": "d16ad801-58ed-4b13-93bb-9b0a725d9e5a",
+                    "style": "NONE"
+                },
+                "balance": {
+                    "currency": "EUR",
+                    "value": "123.45"
+                },
+                "country": "NL",
+                "currency": "EUR",
+                "display_name": "F. Surname",
+                "daily_limit": {
+                    "currency": "EUR",
+                    "value": "1200.00"
+                },
+                "description": "Account Name",
+                "public_uuid": "8801e61e-be83-4ccd-aa38-f892f08db7f8e",
+                "status": "ACTIVE",
+                "sub_status": "NONE",
+                "timezone": "europe\/amsterdam",
+                "user_id": 7654321,
+                "monetary_account_profile": null,
+                "setting": {
+                    "color": "#000000",
+                    "icon": "FINANCE",
+                    "default_avatar_status": "AVATAR_ICON",
+                    "restriction_chat": "ALLOW_INCOMING",
+                    "sdd_expiration_action": "AUTO_ACCEPT"
+                },
+                "connected_cards": [],
+                "budget": [],
+                "overdraft_limit": {
+                    "currency": "EUR",
+                    "value": "0.00"
+                },
+                "all_auto_save_id": []
+            }
+        }
+    ]
+}

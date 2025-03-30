@@ -138,6 +138,24 @@ func TestParseMonetaryAccounts(t *testing.T) {
 	assertEqual(t, acc.Balance.Value, "-9.99", "balance")
 }
 
+func TestParseMonetaryAccount(t *testing.T) {
+	file, _ := os.Open("testdata/read-monetary-account-bank.json")
+	defer file.Close()
+	rsp := &http.Response{
+		StatusCode: 200,
+		Body:       file,
+	}
+	res, err := ParseSingle[MonetaryAccount](rsp)
+	if err != nil {
+		t.Error(err.Error())
+	}
+	acc := res.Response.MonetaryAccountBank
+	assertEqual(t, acc.Id, 1234567, "accountID")
+	assertEqual(t, len(acc.Alias), 2, "aliases")
+	assertEqual(t, acc.Alias[0].Value, "NLxxBUNQxxxxxx", "iban")
+	assertEqual(t, acc.Balance.Value, "123.45", "balance")
+}
+
 func TestParseError(t *testing.T) {
 	file, _ := os.Open("testdata/error.json")
 	defer file.Close()

@@ -37122,7 +37122,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountBankListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
@@ -37519,7 +37519,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountCardListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
@@ -37667,7 +37667,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountExternalListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
@@ -37978,7 +37978,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountExternalSavingsListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
@@ -38289,7 +38289,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountJointListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
@@ -38600,7 +38600,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/MonetaryAccountSavingsListing"
+                    "$ref": "#/components/schemas/MonetaryAccountListing"
                   }
                 }
               }
