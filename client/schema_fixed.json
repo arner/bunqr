@@ -36880,7 +36880,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -37200,7 +37200,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountBankRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -37363,7 +37363,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountCardRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -37745,7 +37745,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountExternalRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -38056,7 +38056,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountExternalSavingsRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -38367,7 +38367,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountJointRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
@@ -38678,7 +38678,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MonetaryAccountSavingsRead"
+                  "$ref": "#/components/schemas/MonetaryAccount"
                 }
               }
             },
